@@ -1,3 +1,5 @@
-<div *ngFor="let event of events">
-  {{ event.eventName }}
+<div class="row">
+  <div class="col-md-3" *ngFor="let event of events">
+    <event-card [event]="event"></event-card>
+  </div>
 </div>

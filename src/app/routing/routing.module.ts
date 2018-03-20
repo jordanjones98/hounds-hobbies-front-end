@@ -15,6 +15,14 @@ const appRoutes: Routes = [
     component: IndexComponent
   },
   {
+    path: 'user',
+    loadChildren: '../user/user.module#UserModule'
+  },
+  {
+    path: 'events',
+    loadChildren: '../event/event.module#EventModule'
+  },
+  {
     path: '**',
     component: PageNotFoundComponent
   },
