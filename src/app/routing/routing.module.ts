@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from '../services/auth-guard.service';
 
 // All app components
 import { AppComponent } from '../app.component';
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
   {
     path: 'user',
     loadChildren: '../user/user.module#UserModule'
+    canActivate: [AuthGuardService]
   },
   {
     path: 'events',
@@ -35,7 +37,7 @@ const appRoutes: Routes = [
     )
   ],
   exports: [
-    RouterModule
+    RouterModule,
   ]
 })
 export class RoutingModule { }

@@ -5,7 +5,7 @@ import { UserIndexComponent } from './user-index/user-index.component';
 const routes: Routes = [
   {
     path: '',
-    component: UserIndexComponent
+    component: UserIndexComponent,
   }
 ];
 

@@ -4,14 +4,25 @@ import { RouterModule } from '@angular/router';
 import { RoutingModule } from './routing/routing.module';
 import { HttpModule } from '@angular/http';
 import { SharedModule } from './shared/shared.module';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { IndexComponent } from './index/index.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { ApiService } from './services/api.service';
+import { AuthGuardService } from './services/auth-guard.service';
 import { EventService } from './services/event.service';
+import { AuthService } from './services/auth.service';
 
+export const firebaseConfig = {
+    apiKey: "AIzaSyCen_FJ-_VeBA12enUNE_JNhj20I_947cA",
+    authDomain: "houndshobbiesregister.firebaseapp.com",
+    databaseURL: "https://houndshobbiesregister.firebaseio.com",
+    storageBucket: "houndshobbiesregister.appspot.com",
+    messagingSenderId: "1057354111665"
+  };
 
 @NgModule({
   declarations: [
@@ -25,11 +36,15 @@ import { EventService } from './services/event.service';
     RoutingModule,
     RouterModule,
     HttpModule,
-    SharedModule
+    SharedModule,
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [
     ApiService,
     EventService,
+    AuthService,
+    AngularFireAuth,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -8,7 +11,10 @@ import { Component, OnInit } from '@angular/core';
 export class NavigationBarComponent implements OnInit {
   links;
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.links = [
@@ -17,6 +23,11 @@ export class NavigationBarComponent implements OnInit {
         "linkName": "test"
       }
     ];
+
+  }
+
+  login() {
+    this.authService.signInWithGoogle();
   }
 
 }
