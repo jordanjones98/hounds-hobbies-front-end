@@ -17,7 +17,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'user',
-    loadChildren: '../user/user.module#UserModule'
+    loadChildren: '../user/user.module#UserModule',
     canActivate: [AuthGuardService]
   },
   {

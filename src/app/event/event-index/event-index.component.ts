@@ -25,6 +25,6 @@ export class EventIndexComponent implements OnInit {
       .subscribe(
         data => { this.events = this.eventService.createObject(data) },
         error => console.log("HTTP ERROR: " + error)
-    );
+      );
   }
 }
