@@ -14,6 +14,10 @@ export class EventService {
     return this.apiService.getRequest("http://192.168.1.34:8888/events");
   }
 
+  getEventBySlug(slug) {
+    return this.apiService.getRequest("http://192.168.1.34:8888/events/" + slug);
+  }
+
   createObject(response) {
     let jsonConvert : JsonConvert = new JsonConvert();
     jsonConvert.ignorePrimitiveChecks = false;
