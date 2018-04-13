@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { RoutingModule } from './routing/routing.module';
 import { HttpModule } from '@angular/http';
 import { SharedModule } from './shared/shared.module';
+import { EventModule } from './event/event.module';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 
@@ -15,6 +16,7 @@ import { ApiService } from './services/api.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { EventService } from './services/event.service';
 import { AuthService } from './services/auth.service';
+import { Data } from './providers/Data';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyCen_FJ-_VeBA12enUNE_JNhj20I_947cA",
@@ -37,14 +39,16 @@ export const firebaseConfig = {
     RouterModule,
     HttpModule,
     SharedModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    EventModule
   ],
   providers: [
     ApiService,
     EventService,
     AuthService,
     AngularFireAuth,
-    AuthGuardService
+    AuthGuardService,
+    Data
   ],
   bootstrap: [AppComponent]
 })
