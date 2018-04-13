@@ -19,8 +19,8 @@ export class NavigationBarComponent implements OnInit {
   ngOnInit() {
     this.links = [
       {
-        "routerLink": "Test",
-        "linkName": "test"
+        "routerLink": "Events",
+        "linkName": "events"
       }
     ];
 

@@ -1,0 +1,11 @@
+.event-name {
+  float: left;
+}
+
+.event-date {
+  float: right;
+  padding-top: 5px;
+}
+
+.event-wrapper {
+}

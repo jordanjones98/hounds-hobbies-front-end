@@ -1,6 +1,13 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
   <button *ngIf="!authService.isLoggedIn()" (click)="login()">Login</button>
   <button *ngIf="authService.isLoggedIn()" (click)="authService.logout()">Logout</button>
+
+  <ul>
+    <li *ngFor="let link of links">
+      <a href="{{ link.linkName }}" style="color:black;">{{ link.routerLink }}</a>
+    </li>
+  </ul>
+
   <div *ngIf="authService.userDetails !== null">
     {{ authService.userDetails.email }}
   </div>
