@@ -35,6 +35,7 @@ export class ViewComponent implements OnInit {
         this.eventService.getEventBySlug(slug).subscribe(
           data => {
             this.event = data;
+            this.addEventToData();
           }
         );
       });
@@ -46,7 +47,14 @@ export class ViewComponent implements OnInit {
   }
 
   register() {
+    if(this.data.storage.name === undefined) {
+      this.data.storage = this.event;
+    }
     this.router.navigate(['/events', this.event.slug, 'register']);
+  }
+
+  addEventToData() {
+    this.data.storage = this.event;
   }
 
 }

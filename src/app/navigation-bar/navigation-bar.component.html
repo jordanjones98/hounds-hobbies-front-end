@@ -4,7 +4,7 @@
 
   <ul>
     <li *ngFor="let link of links">
-      <a href="{{ link.linkName }}" style="color:black;">{{ link.routerLink }}</a>
+      <a [routerLink]="link.linkName" style="color:black;">{{ link.routerLink }}</a>
     </li>
   </ul>
 

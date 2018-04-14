@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Data } from '../../providers/Data';
+import { Event } from '../../entity/Event';
 
 @Component({
   selector: 'app-register',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  event: Event;
+
+  constructor(
+    private data: Data,
+  ) {
+    this.event = this.data.storage;
+  }
 
   ngOnInit() {
   }
