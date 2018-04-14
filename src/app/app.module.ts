@@ -5,6 +5,7 @@ import { RoutingModule } from './routing/routing.module';
 import { HttpModule } from '@angular/http';
 import { SharedModule } from './shared/shared.module';
 import { EventModule } from './event/event.module';
+import { AdminModule } from './admin/admin.module';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 
@@ -31,7 +32,7 @@ export const firebaseConfig = {
     AppComponent,
     PageNotFoundComponent,
     IndexComponent,
-    NavigationBarComponent,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +41,8 @@ export const firebaseConfig = {
     HttpModule,
     SharedModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    EventModule
+    EventModule,
+    AdminModule
   ],
   providers: [
     ApiService,

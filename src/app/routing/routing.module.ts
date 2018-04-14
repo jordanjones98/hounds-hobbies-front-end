@@ -25,6 +25,10 @@ const appRoutes: Routes = [
     loadChildren: '../event/event.module#EventModule'
   },
   {
+    path: 'admin',
+    loadChildren: '../admin/admin.module#AdminModule'
+  },
+  {
     path: '**',
     component: PageNotFoundComponent
   },
