@@ -9,4 +9,14 @@
   </div>
   <h3>About</h3>
   <p>{{ event.about }}</p>
+
+  <hr>
+
+  <h3>Classes</h3>
+  <div *ngFor="let class of event.classes">
+    {{ class.name }}
+    <hr>
+  </div>
+
+  <button (click)="register()">Register For Event</button>
 </div>

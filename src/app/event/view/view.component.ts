@@ -17,7 +17,8 @@ export class ViewComponent implements OnInit {
   constructor(
     private eventService: EventService,
     private data: Data,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {
     /**
      * Make sure not only that it exists, but it has a name
@@ -42,6 +43,10 @@ export class ViewComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  register() {
+    this.router.navigate(['/events', this.event.slug, 'register']);
   }
 
 }
