@@ -12,7 +12,7 @@ export class EditEventComponent implements OnInit {
   event: Event;
 
   constructor(
-    private data: Data;
+    private data: Data
   ) {
     this.event = this.data.storage;
   }

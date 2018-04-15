@@ -16,8 +16,8 @@
 
   <div class="form-group">
     <label for="name">slug:</label>
-    <input type="text" name="name" id="slug" class="form-control" required [(ngModel)]="event.slug">
+    <input type="text" name="slug" id="slug" class="form-control" required [(ngModel)]="event.slug">
   </div>
 
-  <button type="button" (click)="add()" class="btn btn-success">Submit</button>
+  <button type="button" (click)="performAction()" class="btn btn-success">Submit</button>
 </form>

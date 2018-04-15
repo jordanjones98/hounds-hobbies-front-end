@@ -10,6 +10,7 @@ import { EventService } from '../../services/event.service';
 export class EventFormComponent implements OnInit {
 
   @Input() event: Event;
+  @Input() updateForm;
 
   constructor(
     private eventService: EventService
@@ -18,16 +19,28 @@ export class EventFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  performAction() {
+    if(this.updateForm) {
+      this.update();
+    } else {
+      this.add();
+    }
+  }
+
   add() {
     this.eventService.add(this.event).subscribe(
       data => {
-        console.log(data);
+        this.event = this.eventService.createObject(data);
       }
     );
   }
 
   update() {
-
+    this.eventService.update(this.event).subscribe(
+      data => {
+        this.event = this.eventService.createObject(data);
+      }
+    );
   }
 
 }
