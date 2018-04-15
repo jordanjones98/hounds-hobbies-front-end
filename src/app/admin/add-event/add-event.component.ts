@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Event } from '../../entity/Event';
+
 @Component({
   selector: 'app-add-event',
   templateUrl: './add-event.component.html',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddEventComponent implements OnInit {
 
-  constructor() { }
+  event: Event = new Event();
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

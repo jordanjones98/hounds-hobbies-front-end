@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { retry } from 'rxjs/operators';
 
 @Injectable()
 export class ApiService {
 
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
+
   constructor(
-    private http : Http
+    private http : HttpClient
   ) {}
 
   /**
@@ -16,7 +22,19 @@ export class ApiService {
    */
   getRequest(url) {
     return this.http.get(url)
-      .map(response => response.json());
+      .pipe(
+        retry(3)
+      );
+  }
+
+  /**
+   * This function makes a POST request to the given URL, with the given data
+   * @param url the URL to send the request too
+   * @param data the data to send with the API call
+   * @return Observable the response observale
+   */
+  postRequest(url, data) {
+    return this.http.post(url, data, this.httpOptions);
   }
 
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IndexComponent } from './index/index.component';
+import { AddEventComponent } from './add-event/add-event.component';
 
 const routes: Routes = [
   {
@@ -10,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'events/add',
-    component: IndexComponent
+    component: AddEventComponent
   }
 ];
 

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { RoutingModule } from './routing/routing.module';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { EventModule } from './event/event.module';
 import { AdminModule } from './admin/admin.module';
@@ -38,7 +38,7 @@ export const firebaseConfig = {
     BrowserModule,
     RoutingModule,
     RouterModule,
-    HttpModule,
+    HttpClientModule,
     SharedModule,
     AngularFireModule.initializeApp(firebaseConfig),
     EventModule,

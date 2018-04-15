@@ -34,7 +34,7 @@ export class ViewComponent implements OnInit {
         console.log(slug);
         this.eventService.getEventBySlug(slug).subscribe(
           data => {
-            this.event = data;
+            this.event = this.eventService.createObject(data);
             this.addEventToData();
           }
         );
