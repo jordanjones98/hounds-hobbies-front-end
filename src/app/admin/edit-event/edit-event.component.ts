@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Data } from '../../providers/Data';
+
 @Component({
   selector: 'app-edit-event',
   templateUrl: './edit-event.component.html',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditEventComponent implements OnInit {
 
-  constructor() { }
+  event: Event;
+
+  constructor(
+    private data: Data;
+  ) {
+    this.event = this.data.storage;
+  }
 
   ngOnInit() {
   }

@@ -38,4 +38,12 @@ export class EventService {
     );
   }
 
+  update(event: Event) {
+    let jsonEvent = JSON.stringify(event);
+    return this.apiService.postRequest(
+      "http://192.168.1.34:8888/events/update",
+      jsonEvent
+    );
+  }
+
 }
