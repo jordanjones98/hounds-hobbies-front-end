@@ -43,4 +43,8 @@ export class EventFormComponent implements OnInit {
     );
   }
 
+  delete() {
+    this.eventService.delete(this.event).subscribe();
+  }
+
 }

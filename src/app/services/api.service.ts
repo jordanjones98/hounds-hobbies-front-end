@@ -37,4 +37,14 @@ export class ApiService {
     return this.http.post(url, data, this.httpOptions);
   }
 
+  deleteRequest(url, data) {
+    let options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      body: data
+    }
+    return this.http.delete(url, options);
+  }
+
 }

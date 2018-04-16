@@ -46,4 +46,10 @@ export class EventService {
     );
   }
 
+  delete(event: Event) {
+    return this.apiService.deleteRequest(
+      "http://192.168.1.34:8888/events/delete",
+      event
+    );
+  }
 }

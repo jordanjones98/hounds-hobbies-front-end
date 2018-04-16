@@ -20,4 +20,7 @@
   </div>
 
   <button type="button" (click)="performAction()" class="btn btn-success">Submit</button>
+
+  <button type="button" (click)="delete()" class="btn btn-danger" style="float:right"
+      *ngIf="updateForm">Delete</button>
 </form>
