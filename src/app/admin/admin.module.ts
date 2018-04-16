@@ -8,6 +8,10 @@ import { AddEventComponent } from './events/add-event/add-event.component';
 import { EditEventComponent } from './events/edit-event/edit-event.component';
 import { EventFormComponent } from './events/event-form/event-form.component';
 import { ViewEventsComponent } from './events/view-events/view-events.component';
+import { ClassFormComponent } from './classes/class-form/class-form.component';
+import { AddClassComponent } from './classes/add-class/add-class.component';
+import { EditClassComponent } from './classes/edit-class/edit-class.component';
+import { ViewClassesComponent } from './classes/view-classes/view-classes.component';
 
 @NgModule({
   imports: [
@@ -15,6 +19,16 @@ import { ViewEventsComponent } from './events/view-events/view-events.component'
     FormsModule,
     AdminRoutingModule
   ],
-  declarations: [IndexComponent, AddEventComponent, EditEventComponent, EventFormComponent, ViewEventsComponent]
+  declarations: [
+    IndexComponent,
+    AddEventComponent,
+    EditEventComponent,
+    EventFormComponent,
+    ViewEventsComponent,
+    ClassFormComponent,
+    AddClassComponent,
+    EditClassComponent,
+    ViewClassesComponent
+  ]
 })
 export class AdminModule { }

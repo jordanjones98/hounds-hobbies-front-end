@@ -5,6 +5,9 @@ import { IndexComponent } from './index/index.component';
 import { AddEventComponent } from './events/add-event/add-event.component';
 import { ViewEventsComponent } from './events/view-events/view-events.component';
 import { EditEventComponent } from './events/edit-event/edit-event.component';
+import { AddClassComponent } from './classes/add-class/add-class.component';
+import { ViewClassesComponent } from './classes/view-classes/view-classes.component';
+import { EditClassComponent } from './classes/edit-class/edit-class.component';
 
 const routes: Routes = [
   {
@@ -22,6 +25,18 @@ const routes: Routes = [
   {
     path: 'events/edit/:slug',
     component: EditEventComponent
+  },
+  {
+    path: 'classes/add',
+    component: AddClassComponent
+  },
+  {
+    path: 'classes/view',
+    component: ViewClassesComponent
+  },
+  {
+    path: 'events/edit/:slug',
+    component: EditClassComponent
   }
 ];
 
