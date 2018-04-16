@@ -7,4 +7,7 @@ export class Class {
 
   @JsonProperty("id", Number)
   id: number = undefined;
+
+  @JsonProperty("slug", String)
+  slug: string = undefined;
 }
