@@ -18,6 +18,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { EventService } from './services/event.service';
 import { AuthService } from './services/auth.service';
 import { Data } from './providers/Data';
+import { ClassService } from './services/class.service';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyCen_FJ-_VeBA12enUNE_JNhj20I_947cA",
@@ -47,6 +48,7 @@ export const firebaseConfig = {
   providers: [
     ApiService,
     EventService,
+    ClassService,
     AuthService,
     AngularFireAuth,
     AuthGuardService,

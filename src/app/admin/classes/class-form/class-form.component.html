@@ -1,3 +1,6 @@
-<p>
-  class-form works!
-</p>
+<form #classForm="ngForm">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" class="form-control" required [(ngModel)]="_class.className">
+  </div>
+</form>
