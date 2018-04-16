@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Event } from '../../entity/Event';
-import { EventService } from '../../services/event.service';
+import { Event } from '../../../entity/Event';
+import { EventService } from '../../../services/event.service';
 
 @Component({
   selector: 'event-form',

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { EventService } from '../../services/event.service';
-import { Event } from '../../entity/Event';
-import { Data } from '../../providers/Data';
+import { EventService } from '../../../services/event.service';
+import { Event } from '../../../entity/Event';
+import { Data } from '../../../providers/Data';
 
 @Component({
   selector: 'app-view-events',

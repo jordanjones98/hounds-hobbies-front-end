@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IndexComponent } from './index/index.component';
-import { AddEventComponent } from './add-event/add-event.component';
-import { ViewEventsComponent } from './view-events/view-events.component';
-import { EditEventComponent } from './edit-event/edit-event.component';
+import { AddEventComponent } from './events/add-event/add-event.component';
+import { ViewEventsComponent } from './events/view-events/view-events.component';
+import { EditEventComponent } from './events/edit-event/edit-event.component';
 
 const routes: Routes = [
   {

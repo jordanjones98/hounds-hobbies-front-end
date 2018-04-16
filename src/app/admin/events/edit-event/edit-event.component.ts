@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Data } from '../../providers/Data';
+import { Data } from '../../../providers/Data';
 
 @Component({
   selector: 'app-edit-event',
