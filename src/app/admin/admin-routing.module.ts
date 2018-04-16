@@ -35,7 +35,7 @@ const routes: Routes = [
     component: ViewClassesComponent
   },
   {
-    path: 'events/edit/:slug',
+    path: 'classes/edit/:slug',
     component: EditClassComponent
   }
 ];
