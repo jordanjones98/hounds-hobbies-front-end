@@ -13,7 +13,7 @@ export class EditClassComponent implements OnInit {
   _class: Class
 
   constructor(
-    private data: Data;
+    private data: Data
   ) {
     this._class = this.data.storage;
   }

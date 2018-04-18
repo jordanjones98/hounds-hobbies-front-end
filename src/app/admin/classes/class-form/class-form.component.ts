@@ -22,14 +22,14 @@ export class ClassFormComponent implements OnInit {
 
   performAction() {
     if(this.updateForm) {
-      this.update():
+      this.update();
     } else {
       this.add();
     }
   }
 
   add() {
-    this.classService.add(this.event).subscribe(
+    this.classService.add(this._class).subscribe(
       data => {
         this._class = this.classService.createObject(data)
       }
