@@ -8,6 +8,7 @@ import { EditEventComponent } from './events/edit-event/edit-event.component';
 import { AddClassComponent } from './classes/add-class/add-class.component';
 import { ViewClassesComponent } from './classes/view-classes/view-classes.component';
 import { EditClassComponent } from './classes/edit-class/edit-class.component';
+import { ViewUsersComponent } from './users/view-users/view-users.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'classes/edit/:slug',
     component: EditClassComponent
+  },
+  {
+    path: 'users/view',
+    component: ViewUsersComponent
   }
 ];
 
