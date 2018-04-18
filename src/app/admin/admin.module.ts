@@ -12,6 +12,7 @@ import { ClassFormComponent } from './classes/class-form/class-form.component';
 import { AddClassComponent } from './classes/add-class/add-class.component';
 import { EditClassComponent } from './classes/edit-class/edit-class.component';
 import { ViewClassesComponent } from './classes/view-classes/view-classes.component';
+import { ViewUsersComponent } from './users/view-users/view-users.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { ViewClassesComponent } from './classes/view-classes/view-classes.compon
     ClassFormComponent,
     AddClassComponent,
     EditClassComponent,
-    ViewClassesComponent
+    ViewClassesComponent,
+    ViewUsersComponent
   ]
 })
 export class AdminModule { }
