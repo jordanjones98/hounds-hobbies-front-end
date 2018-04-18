@@ -37,11 +37,7 @@ export class ClassFormComponent implements OnInit {
   }
 
   update() {
-    this.classService.update(this.event).subscribe(
-      data => {
-        this._class = this.classService.createObject(data);
-      }
-    );
+    this.classService.update(this._class).subscribe();
   }
 
 }
