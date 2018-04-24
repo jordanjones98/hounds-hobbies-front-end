@@ -15,9 +15,11 @@ import { IndexComponent } from './index/index.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { ApiService } from './services/api.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { AdminAuthGuardService } from './services/admin-auth-guard.service';
 import { EventService } from './services/event.service';
 import { AuthService } from './services/auth.service';
 import { Data } from './providers/Data';
+import { UserProvider } from './providers/User';
 import { ClassService } from './services/class.service';
 import { UserService } from './services/user.service';
 
@@ -54,7 +56,9 @@ export const firebaseConfig = {
     AuthService,
     AngularFireAuth,
     AuthGuardService,
-    Data
+    AdminAuthGuardService,
+    Data,
+    UserProvider
   ],
   bootstrap: [AppComponent]
 })

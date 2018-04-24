@@ -1,23 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Data } from '../../providers/Data';
 import { Event } from '../../entity/Event';
+import { Event } from '../../entity/Class';
 
 @Component({
-  selector: 'app-register',
+  selector: 'register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
 
-  event: Event;
+  @Input() event: Event;
 
-  constructor(
-    private data: Data,
-  ) {
-    this.event = this.data.storage;
+  constructor() {
   }
 
   ngOnInit() {
+  }
+
+  addClass(eventClass: Class) {
+    console.log(eventClass);
   }
 
 }

@@ -17,4 +17,6 @@
   <hr>
 </div>
 
-<button (click)="register()">Register For Event</button>
+<button (click)="registerUser()">Register For Event</button>
+
+<register *ngIf="register" [event]="event"></register>

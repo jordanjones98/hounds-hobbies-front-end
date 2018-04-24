@@ -1,1 +1,5 @@
-{{ event | json }}
+<h4>Select your classes</h4>
+<div *ngFor="let class of event.classes">
+  <input type="checkbox" value="class.slug" (click)="addClass(class)" />
+  {{ class.className }}
+</div>

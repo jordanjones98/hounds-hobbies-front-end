@@ -43,6 +43,16 @@ export class UserService {
     );
   }
 
+  getUser(email, fullName) {
+    return this.apiService.postRequest(
+      "http://192.168.1.34:8888/users/create-or-return",
+      {
+        "email": email,
+        "fullName": fullName
+      }
+    );
+  }
+
   createObject(response) {
     let jsonConvert : JsonConvert = new JsonConvert();
     jsonConvert.ignorePrimitiveChecks = false;

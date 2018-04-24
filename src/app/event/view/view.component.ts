@@ -13,6 +13,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class ViewComponent implements OnInit {
 
   event: Event;
+  register: boolean = false;
 
   constructor(
     private eventService: EventService,
@@ -46,11 +47,8 @@ export class ViewComponent implements OnInit {
   ngOnInit() {
   }
 
-  register() {
-    if(this.data.storage.name === undefined) {
-      this.data.storage = this.event;
-    }
-    this.router.navigate(['/events', this.event.slug, 'register']);
+  registerUser() {
+    this.register = true;
   }
 
   addEventToData() {

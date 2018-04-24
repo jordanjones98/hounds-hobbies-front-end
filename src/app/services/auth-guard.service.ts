@@ -3,6 +3,7 @@ import { Router, CanActivate } from '@angular/router';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthService } from './auth.service';
+import { UserProvider } from '../providers/User';
 
 
 @Injectable()
@@ -10,17 +11,15 @@ export class AuthGuardService implements CanActivate {
 
     constructor(
       private router: Router,
-      private authService: AuthService
+      private userProvider: UserProvider
     ) { }
 
     canActivate() {
-        console.log("CAN ACTIVATE");
-        if (this.authService.isLoggedIn()) {
+        if (!this.userProvider.user == null) {
             return true;
         }
         this.router.navigate(['/']);
         return false;
-
     }
 
 }
