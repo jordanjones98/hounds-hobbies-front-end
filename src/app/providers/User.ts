@@ -3,7 +3,7 @@ import { User } from '../entity/User';
 
 @Injectable()
 export class UserProvider {
-  public user: User;
+  public user: User = null;
 
   public constructor() {}
 }

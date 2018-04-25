@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../services/auth.service';
+import { UserProvider } from '../providers/User';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -13,7 +14,8 @@ export class NavigationBarComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private userProvider: UserProvider
   ) { }
 
   ngOnInit() {
@@ -24,7 +26,8 @@ export class NavigationBarComponent implements OnInit {
       },
       {
         "routerLink": "Admin",
-        "linkName": "admin"
+        "linkName": "admin",
+        "adminOnly": true
       }
     ];
 

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Data } from '../../providers/Data';
 import { Event } from '../../entity/Event';
-import { Event } from '../../entity/Class';
+import { Class } from '../../entity/Class';
 
 @Component({
   selector: 'register',

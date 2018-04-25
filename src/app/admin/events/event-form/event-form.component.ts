@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Event } from '../../../entity/Event';
+import { Class } from '../../../entity/Class';
 import { EventService } from '../../../services/event.service';
 import { ClassService } from '../../../services/class.service';
 
@@ -55,7 +56,7 @@ export class EventFormComponent implements OnInit {
   getAllClasses() {
     this.classService.getAllClasses().subscribe(
       data => { this.classes = data; console.log(data);},
-      error => console.log(error);
+      error => console.log(error)
     );
   }
 
@@ -70,7 +71,6 @@ export class EventFormComponent implements OnInit {
       this.event.classes.push(_class);
     } else {
       this.event.classes.splice(index, 1);
-      console.log("need to remove");
     }
 
   }
