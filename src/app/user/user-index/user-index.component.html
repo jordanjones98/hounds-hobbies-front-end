@@ -2,7 +2,7 @@
   <h1>{{ user?.firstName }} {{ user?.lastName }}</h1>
 </div>
 
-<div *ngIf="user.events != undefined">
+<div *ngIf="user.events.length > 0; else noEvents">
   <div class="col-md-12">
     <h2>Your Events</h2>
   </div>
@@ -11,3 +11,9 @@
     <event-card [event]="event"></event-card>
   </div>
 </div>
+
+<ng-template #noEvents>
+  <div class="col-md-12">
+    <h1>You are not registered for any events</h1>
+  </div>
+</ng-template>
