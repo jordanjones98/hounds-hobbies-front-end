@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from '../../services/event.service';
+import { UserService } from '../../services/user.service';
 import { Data } from '../../providers/Data';
 import { Event } from '../../entity/Event';
+import { User } from '../../entity/User';
+import { UserProvider } from '../../providers/User';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
@@ -14,12 +17,15 @@ export class ViewComponent implements OnInit {
 
   event: Event;
   register: boolean = false;
+  user: User;
 
   constructor(
     private eventService: EventService,
+    private userService: UserService,
     private data: Data,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private userProvider: UserProvider
   ) {
     /**
      * Make sure not only that it exists, but it has a name
@@ -45,14 +51,23 @@ export class ViewComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = this.userProvider.user;
   }
 
   registerUser() {
-    this.register = true;
+    this.user.events.push(this.event);
+    this.userService.addEvent(this.user).subscribe();
   }
 
   addEventToData() {
     this.data.storage = this.event;
+  }
+
+  userRegisteredForEvent() {
+    if(this.user.events.indexOf(this.event) < 0) {
+      return false;
+    }
+    return true;
   }
 
 }

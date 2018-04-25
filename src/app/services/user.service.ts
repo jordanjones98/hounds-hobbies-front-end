@@ -65,4 +65,12 @@ export class UserService {
     }
   }
 
+  addEvent(user: User) {
+    console.log(user);
+    return this.apiService.postRequest(
+      "http://192.168.1.34:8888/users/jordan-jones/add-event",
+      JSON.stringify(user)
+    );
+  }
+
 }

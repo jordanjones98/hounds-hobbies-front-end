@@ -17,6 +17,10 @@
   <hr>
 </div>
 
-<button (click)="registerUser()">Register For Event</button>
+<button (click)="registerUser()" *ngIf="user != undefined && !userRegisteredForEvent(); else unRegister">Register For Event</button>
+
+<ng-template #unRegister>
+  <button (click)="unregisterEvent()">Unregister</button>
+</ng-template>
 
 <register *ngIf="register" [event]="event"></register>

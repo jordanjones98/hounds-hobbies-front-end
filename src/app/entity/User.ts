@@ -4,6 +4,9 @@ import { Event } from './Event';
 
 @JsonObject
 export class User {
+  @JsonProperty("id", Number)
+  id: number = undefined;
+
   @JsonProperty("firstName", String)
   firstName: string = undefined;
 
