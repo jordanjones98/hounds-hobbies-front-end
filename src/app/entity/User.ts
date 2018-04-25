@@ -19,6 +19,9 @@ export class User {
   @JsonProperty("admin", Boolean)
   admin: boolean = undefined;
 
+  @JsonProperty("slug", String)
+  slug: string = undefined;
+
   @JsonProperty("events", [Event])
   events: Event[] = undefined;
 }

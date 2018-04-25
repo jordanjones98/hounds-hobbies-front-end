@@ -18,8 +18,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'user',
-    loadChildren: '../user/user.module#UserModule',
-    canActivate: [AuthGuardService]
+    loadChildren: '../user/user.module#UserModule'
   },
   {
     path: 'events',

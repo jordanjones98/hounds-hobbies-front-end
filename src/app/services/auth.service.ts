@@ -30,7 +30,6 @@ export class AuthService {
               this.userProvider.user = this.userService.createObject(data);
             }
           );
-          console.log(this.userDetails);
         } else {
           this.userDetails = null;
         }

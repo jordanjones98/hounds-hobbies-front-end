@@ -55,7 +55,7 @@ export class EventFormComponent implements OnInit {
 
   getAllClasses() {
     this.classService.getAllClasses().subscribe(
-      data => { this.classes = data; console.log(data);},
+      data => { this.classes = data; },
       error => console.log(error)
     );
   }

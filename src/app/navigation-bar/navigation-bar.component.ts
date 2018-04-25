@@ -25,6 +25,10 @@ export class NavigationBarComponent implements OnInit {
         "linkName": "events"
       },
       {
+        "routerLink": "User",
+        "linkName": "user"
+      },
+      {
         "routerLink": "Admin",
         "linkName": "admin",
         "adminOnly": true

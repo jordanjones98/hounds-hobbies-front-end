@@ -16,7 +16,7 @@ export class UserService {
   }
 
   getUserBySlug(slug) {
-    return this.apiService.getRequest("http://192.168.1.34:8888/events/" + slug);
+    return this.apiService.getRequest("http://192.168.1.34:8888/users/" + slug);
   }
 
   add(user: User) {

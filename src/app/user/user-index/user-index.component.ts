@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserProvider } from '../../providers/User';
+import { User } from '../../entity/User';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-user-index',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserIndexComponent implements OnInit {
 
-  constructor() { }
+  user: User;
+
+  constructor(
+    private userProvider: UserProvider,
+    private userService: UserService
+  ) { }
 
   ngOnInit() {
+    this.user = this.userProvider.user;
   }
 
 }
