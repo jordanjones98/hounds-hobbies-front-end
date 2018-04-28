@@ -76,12 +76,17 @@ export class EventFormComponent implements OnInit {
   }
 
   isInEvent(_class: Class) {
-    let index = this.event.classes.indexOf(_class);
+    if(!this.updateForm) {
+      return true;
+    }
+    console.log(this.event.classes);
     console.log(_class);
+    let index = this.event.classes.indexOf(_class);
 
     console.log(index);
 
     if(index < 0) {
+      console.log("not in event");
       return false;
     }
 
