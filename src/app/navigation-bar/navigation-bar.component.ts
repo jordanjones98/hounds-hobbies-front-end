@@ -23,12 +23,13 @@ export class NavigationBarComponent implements OnInit {
     this.links = [
       {
         "routerLink": "events",
-        "linkName": "Events"
+        "linkName": "Events",
+        "admin": false
       },
       {
         "routerLink": "admin",
         "linkName": "Admin",
-        "adminOnly": true
+        "admin": true
       }
     ];
   }
@@ -45,5 +46,17 @@ export class NavigationBarComponent implements OnInit {
 
   isLoggedIn() {
     return this.authService.isLoggedIn();
+  }
+
+  showAdminLink(link) {
+    if(link.admin) {
+      if(this.userProvider.user != null && this.userProvider.user.admin) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return true;
+    }
   }
 }

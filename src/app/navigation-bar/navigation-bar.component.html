@@ -7,26 +7,23 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" *ngFor="let link of links" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="link.routerLink">{{ link.linkName }}</a>
+        <a class="nav-link" [routerLink]="link.routerLink"
+            *ngIf="showAdminLink(link)">{{ link.linkName }}</a>
       </li>
     </ul>
-    <span class="navbar-text">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown" *ngIf="isLoggedIn(); else login">
-          <a class="nav-link">
-            {{ userProvider.user?.email }}
-          </a>
+    <ul class="navbar-nav mr-auto navbar-right">
+      <li *ngIf="isLoggedIn(); else login">
+        <a class="nav-link" [routerLink]="user">{{ userProvider.user?.firstName }} {{ userProvider.user?.lastName }}</a>
+      </li>
+      <li *ngIf="isLoggedIn()">
+        <a class="nav-link" (click)="logout()" style="float:right">Logout</a>
+      </li>
 
-          <a class="nav-link" (click)="logout()">Logout</a>
-
+      <ng-template #login>
+        <li class="nav-item">
+            <a class="nav-link" (click)="loginUser()">Login</a>
         </li>
-
-        <ng-template #login>
-          <li class="nav-item">
-              <a class="nav-link" (click)="loginUser()">Login</a>
-          </li>
-        </ng-template>
-      </ul>
-    </span>
+      </ng-template>
+    </ul>
   </div>
 </nav>
