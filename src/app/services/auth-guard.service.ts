@@ -15,11 +15,12 @@ export class AuthGuardService implements CanActivate {
     ) { }
 
     canActivate() {
-        if (!this.userProvider.user == null) {
+        if (this.userProvider.user != null) {
             return true;
+        } else {
+          this.router.navigate(['/']);
+          return false;
         }
-        this.router.navigate(['/']);
-        return false;
     }
 
 }
