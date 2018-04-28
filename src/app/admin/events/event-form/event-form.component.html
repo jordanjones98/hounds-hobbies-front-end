@@ -22,7 +22,8 @@
 
   <h3>Classes</h3>
   <div *ngFor="let _class of classes">
-    <input type="checkbox" value="{{ _class.slug }}" (click)="addOrRemoveClass(_class)"> {{ _class.className }}
+    <input type="checkbox" value="{{ _class.slug }}" (click)="addOrRemoveClass(_class)"
+        [checked]="isInEvent(_class)"> {{ _class.className }}
   </div>
 
   <br/>

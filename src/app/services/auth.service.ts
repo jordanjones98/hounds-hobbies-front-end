@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
+import { firebase } from '@firebase/app';
 import { Observable } from 'rxjs/Observable';
 
 import { UserProvider } from '../providers/User';
@@ -19,7 +19,7 @@ export class AuthService {
     private userService: UserService
   ) {
 
-    this.user = af.authState;
+    this.user = this.af.authState;
 
     this.user.subscribe(
       (user) => {
@@ -52,11 +52,7 @@ export class AuthService {
   }
 
   logout() {
-    this.userDetails = null
+    this.userProvider.user = null
     return this.af.auth.signOut();
-  }
-
-  getUser() {
-    console.log(JSON.stringify(this.user));
   }
 }

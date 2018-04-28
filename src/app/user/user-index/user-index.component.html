@@ -7,8 +7,10 @@
     <h2>Your Events</h2>
   </div>
 
-  <div class="col-md-4" *ngFor="let event of user.events">
-    <event-card [event]="event"></event-card>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let event of user.events">
+      <event-card [event]="event"></event-card>
+    </div>
   </div>
 </div>
 

@@ -1,14 +1,32 @@
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button *ngIf="!authService.isLoggedIn()" (click)="login()">Login</button>
-  <button *ngIf="authService.isLoggedIn()" (click)="authService.logout()">Logout</button>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/">Burlington Hobbies</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <ul>
-    <li *ngFor="let link of links">
-      <a [routerLink]="link.linkName" style="color:black;">{{ link.routerLink }}</a>
-    </li>
-  </ul>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" *ngFor="let link of links" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="link.routerLink">{{ link.linkName }}</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown" *ngIf="isLoggedIn(); else login">
+          <a class="nav-link">
+            {{ userProvider.user?.email }}
+          </a>
 
-  <div *ngIf="userProvider?.user !== null">
-    {{ userProvider.user.email }}
+          <a class="nav-link" (click)="logout()">Logout</a>
+
+        </li>
+
+        <ng-template #login>
+          <li class="nav-item">
+              <a class="nav-link" (click)="loginUser()">Login</a>
+          </li>
+        </ng-template>
+      </ul>
+    </span>
   </div>
 </nav>

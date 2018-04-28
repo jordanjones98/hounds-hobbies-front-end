@@ -55,7 +55,7 @@ export class EventFormComponent implements OnInit {
 
   getAllClasses() {
     this.classService.getAllClasses().subscribe(
-      data => { this.classes = data; },
+      data => { this.classes = this.classService.createObject(data); },
       error => console.log(error)
     );
   }
@@ -73,6 +73,19 @@ export class EventFormComponent implements OnInit {
       this.event.classes.splice(index, 1);
     }
 
+  }
+
+  isInEvent(_class: Class) {
+    let index = this.event.classes.indexOf(_class);
+    console.log(_class);
+
+    console.log(index);
+
+    if(index < 0) {
+      return false;
+    }
+
+    return true;
   }
 
 }

@@ -11,6 +11,7 @@ import { UserProvider } from '../providers/User';
 })
 export class NavigationBarComponent implements OnInit {
   links;
+  userLinks;
 
   constructor(
     private authService: AuthService,
@@ -21,24 +22,28 @@ export class NavigationBarComponent implements OnInit {
   ngOnInit() {
     this.links = [
       {
-        "routerLink": "Events",
-        "linkName": "events"
+        "routerLink": "events",
+        "linkName": "Events"
       },
       {
-        "routerLink": "User",
-        "linkName": "user"
-      },
-      {
-        "routerLink": "Admin",
-        "linkName": "admin",
+        "routerLink": "admin",
+        "linkName": "Admin",
         "adminOnly": true
       }
     ];
-
   }
 
-  login() {
+  loginUser() {
     this.authService.signInWithGoogle();
   }
 
+  logout() {
+    this.authService.logout();
+
+    this.router.navigate(['/']);
+  }
+
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
+  }
 }
