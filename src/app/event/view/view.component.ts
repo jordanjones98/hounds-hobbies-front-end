@@ -72,7 +72,7 @@ export class ViewComponent implements OnInit {
 
   unregisterEvent() {
     let index = this.user.events.indexOf(this.event);
-    this.user.events.slice(index);
+    this.user.events.splice(index, 1);
     this.userService.addOrRemoveEvent(this.user).subscribe();
   }
 
