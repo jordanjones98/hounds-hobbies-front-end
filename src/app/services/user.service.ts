@@ -76,7 +76,7 @@ export class UserService {
   updateAdmin(user: User) {
     return this.apiService.postRequest(
       "http://192.168.1.34:8888/users/" + user.slug + "/admin",
-      JSON.stringify(user);
+      JSON.stringify(user)
     );
   }
 
