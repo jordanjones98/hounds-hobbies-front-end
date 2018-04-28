@@ -65,11 +65,18 @@ export class UserService {
     }
   }
 
-  addEvent(user: User) {
+  addOrRemoveEvent(user: User) {
     console.log(user);
     return this.apiService.postRequest(
-      "http://192.168.1.34:8888/users/jordan-jones/add-event",
+      "http://192.168.1.34:8888/users/" + user.slug + "/add-or-remove-event",
       JSON.stringify(user)
+    );
+  }
+
+  updateAdmin(user: User) {
+    return this.apiService.postRequest(
+      "http://192.168.1.34:8888/users/" + user.slug + "/admin",
+      JSON.stringify(user);
     );
   }
 

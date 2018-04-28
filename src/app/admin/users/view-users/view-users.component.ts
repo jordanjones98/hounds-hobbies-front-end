@@ -32,4 +32,9 @@ export class ViewUsersComponent implements OnInit {
     );
   }
 
+  updateAdmin(user: User) {
+    this.userService.updateAdmin(user).subscribe();
+    this.getUsers();
+  }
+
 }

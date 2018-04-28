@@ -56,7 +56,7 @@ export class ViewComponent implements OnInit {
 
   registerUser() {
     this.user.events.push(this.event);
-    this.userService.addEvent(this.user).subscribe();
+    this.userService.addOrRemoveEvent(this.user).subscribe();
   }
 
   addEventToData() {
@@ -68,6 +68,12 @@ export class ViewComponent implements OnInit {
       return false;
     }
     return true;
+  }
+
+  unregisterEvent() {
+    let index = this.user.events.indexOf(this.event);
+    this.user.events.slice(index);
+    this.userService.addOrRemoveEvent(this.user).subscribe();
   }
 
 }

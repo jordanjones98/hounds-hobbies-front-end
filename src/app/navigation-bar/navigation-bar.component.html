@@ -13,7 +13,7 @@
     </ul>
     <ul class="navbar-nav mr-auto navbar-right">
       <li *ngIf="isLoggedIn(); else login">
-        <a class="nav-link" [routerLink]="user">{{ userProvider.user?.firstName }} {{ userProvider.user?.lastName }}</a>
+        <a class="nav-link" routerLink="user">{{ userProvider.user?.firstName }} {{ userProvider.user?.lastName }}</a>
       </li>
       <li *ngIf="isLoggedIn()">
         <a class="nav-link" (click)="logout()" style="float:right">Logout</a>
