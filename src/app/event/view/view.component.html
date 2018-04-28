@@ -1,26 +1,27 @@
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-12">
     <h1 class="event-name">{{ event.name }}</h1>
   </div>
-  <div class="col-md-6">
-    <p class="event-date">{{ event.date }}</p>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-7">
+    <h3>About</h3>
+
+    Date: {{ event.date }}
+
+    <p>{{ event.about }}</p>
+
+    <button class="btn btn-success" (click)="registerUser()" *ngIf="user != undefined && !userRegisteredForEvent(); else unRegister">Register</button>
+
+    <ng-template #unRegister>
+      <button class="btn btn-warning" (click)="unregisterEvent()">Unregister</button>
+    </ng-template>
+  </div>
+  <div class="col-md-5">
+    <h3>Classes</h3>
+    <div class="classDiv" *ngFor="let class of event.classes">
+      {{ class.className }}
+    </div>
   </div>
 </div>
-<h3>About</h3>
-<p>{{ event.about }}</p>
-
-<hr>
-
-<h3>Classes</h3>
-<div *ngFor="let class of event.classes">
-  {{ class.className }}
-  <hr>
-</div>
-
-<button (click)="registerUser()" *ngIf="user != undefined && !userRegisteredForEvent(); else unRegister">Register For Event</button>
-
-<ng-template #unRegister>
-  <button (click)="unregisterEvent()">Unregister</button>
-</ng-template>
-
-<register *ngIf="register" [event]="event"></register>
