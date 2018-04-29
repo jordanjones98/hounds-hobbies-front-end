@@ -10,6 +10,7 @@ import { Event } from '../../../entity/Event';
 export class AddEventComponent implements OnInit {
 
   event: Event = new Event();
+  updateForm: boolean = false;
 
   constructor() {
   }
