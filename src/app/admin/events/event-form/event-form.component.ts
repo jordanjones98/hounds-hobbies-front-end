@@ -3,6 +3,7 @@ import { Event } from '../../../entity/Event';
 import { Class } from '../../../entity/Class';
 import { EventService } from '../../../services/event.service';
 import { ClassService } from '../../../services/class.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'event-form',
@@ -12,13 +13,14 @@ import { ClassService } from '../../../services/class.service';
 export class EventFormComponent implements OnInit {
 
   @Input() event: Event;
-  @Input() updateForm;
+  @Input() updateForm: boolean;
 
   classes;
 
   constructor(
     private eventService: EventService,
-    private classService: ClassService
+    private classService: ClassService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -36,7 +38,7 @@ export class EventFormComponent implements OnInit {
   add() {
     this.eventService.add(this.event).subscribe(
       data => {
-        this.event = this.eventService.createObject(data);
+        this.router.navigate(['/admin/events/view']);
       }
     );
   }
@@ -51,6 +53,7 @@ export class EventFormComponent implements OnInit {
 
   delete() {
     this.eventService.delete(this.event).subscribe();
+    this.router.navigate(['/admin/events/view']);
   }
 
   getAllClasses() {

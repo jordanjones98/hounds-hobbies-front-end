@@ -22,4 +22,7 @@ export class Event {
 
   @JsonProperty("classes", [Class])
   classes: Class[] = undefined;
+
+  @JsonProperty("truncateAbout", String)
+  truncateAbout: string = undefined;
 }
