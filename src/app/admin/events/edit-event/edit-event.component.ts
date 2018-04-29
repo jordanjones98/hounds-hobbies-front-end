@@ -10,6 +10,7 @@ import { Data } from '../../../providers/Data';
 export class EditEventComponent implements OnInit {
 
   event: Event;
+  updateForm: boolean = false;
 
   constructor(
     private data: Data
