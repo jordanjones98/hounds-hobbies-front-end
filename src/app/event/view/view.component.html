@@ -12,10 +12,16 @@
 
     <p>{{ event.about }}</p>
 
-    <button class="btn btn-success" (click)="registerUser()" *ngIf="user != undefined && !userRegisteredForEvent(); else unRegister">Register</button>
+    <div *ngIf="isLoggedIn(); else notLoggedIn">
+      <button class="btn btn-success" (click)="registerUser()" *ngIf="user != undefined && !userRegisteredForEvent(); else unRegister">Register</button>
 
-    <ng-template #unRegister>
-      <button class="btn btn-warning" (click)="unregisterEvent()">Unregister</button>
+      <ng-template #unRegister>
+        <button class="btn btn-warning" (click)="unregisterEvent()">Unregister</button>
+      </ng-template>
+    </div>
+
+    <ng-template #notLoggedIn>
+      <strong>You must be logged in to register for an event.</strong>
     </ng-template>
   </div>
   <div class="col-md-5">

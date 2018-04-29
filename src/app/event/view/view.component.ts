@@ -64,16 +64,32 @@ export class ViewComponent implements OnInit {
   }
 
   userRegisteredForEvent() {
-    if(this.user.events.indexOf(this.event) < 0) {
+    let eventFound = false;
+    this.userProvider.user.events.forEach((_event) => {
+      if(this.event.id == _event.id) {
+        eventFound = true;
+      }
+    });
+
+    if(eventFound) {
+      return true;
+    } else {
       return false;
     }
-    return true;
   }
 
   unregisterEvent() {
     let index = this.user.events.indexOf(this.event);
     this.user.events.splice(index, 1);
     this.userService.addOrRemoveEvent(this.user).subscribe();
+  }
+
+  isLoggedIn() {
+    if(this.userProvider.user != null) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }

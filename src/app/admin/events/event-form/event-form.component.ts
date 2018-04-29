@@ -68,32 +68,31 @@ export class EventFormComponent implements OnInit {
       this.event.classes = [];
     }
 
-    let index = this.event.classes.indexOf(_class);
+    this.event.classes.forEach((eventClass, index) => {
+      if(eventClass.id == _class.id) {
+        this.event.classes.splice(index, 1);
+        inEvent = true;
+        return;
+      }
+    });
 
-    if(index < 0) {
+    if(!inEvent) {
       this.event.classes.push(_class);
-    } else {
-      this.event.classes.splice(index, 1);
     }
 
   }
 
   isInEvent(_class: Class) {
     if(!this.updateForm) {
-      return true;
-    }
-    console.log(this.event.classes);
-    console.log(_class);
-    let index = this.event.classes.indexOf(_class);
-
-    console.log(index);
-
-    if(index < 0) {
-      console.log("not in event");
       return false;
     }
+    for(let eventClass of this.event.classes) {
+      if(eventClass.id == _class.id) {
+        return true;
+      }
+    }
 
-    return true;
+    return false;
   }
 
 }
