@@ -1,0 +1,13 @@
+p.header {
+  font-size: 1.5em;
+  text-align: center !important;
+}
+
+p.about {
+
+}
+
+div.about {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+}

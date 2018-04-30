@@ -35,7 +35,6 @@ export class ViewComponent implements OnInit {
     if (this.data.storage.name !== undefined) {
       this.event = this.data.storage;
     } else {
-      console.log("Getting some params");
       this.activatedRoute.params.subscribe((params: Params) => {
         let slug = params['slug'];
         console.log(slug);
