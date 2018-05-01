@@ -23,6 +23,13 @@ export class ClassService {
     return this.apiService.postRequest(environment.apiEndpoint + "/classes/insert", JSON.stringify(_class));
   }
 
+  delete(_class: Class) {
+    return this.apiService.deleteRequest(
+      environment.apiEndpoint + "/classes/delete",
+      _class
+    );
+  }
+
   createObject(response) {
     let jsonConvert : JsonConvert = new JsonConvert();
     jsonConvert.ignorePrimitiveChecks = false;

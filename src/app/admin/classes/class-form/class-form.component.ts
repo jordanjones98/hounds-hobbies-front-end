@@ -44,4 +44,14 @@ export class ClassFormComponent implements OnInit {
     this.classService.update(this._class).subscribe();
   }
 
+  delete() {
+    this.classService.delete(this._class).subscribe(
+      data => {},
+      error => {
+        alert("Can not delete this class, an event with this class exists");
+      }
+    );
+    this.router.navigate(['/admin/classes/view']);
+  }
+
 }

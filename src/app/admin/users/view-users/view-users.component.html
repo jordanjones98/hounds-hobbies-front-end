@@ -7,7 +7,8 @@ information can not be updated</strong>
     <th>First Name</th>
     <th>Last Name</th>
     <th>Email</th>
-    <th>Phone Number</th>
+    <th>Delete</th>
+    <th>Admin</th>
   </thead>
   <tbody>
     <tr *ngFor="let user of users">
@@ -21,7 +22,8 @@ information can not be updated</strong>
         {{ user.email }}
       </td>
       <td>
-        {{ user.phoneNumber }}
+        <button type="button" (click)="delete(user)" class="btn btn-sm btn-danger custom-btn">
+            Delete</button>
       </td>
       <td>
         <button type="button" (click)="updateAdmin(user)"

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../entity/User';
@@ -15,13 +16,12 @@ export class ViewUsersComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private userProvider: UserProvider
+    private userProvider: UserProvider,
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.getUsers();
-    console.log("Show User");
-    console.log(this.userProvider.user);
   }
 
   getUsers() {
@@ -35,6 +35,14 @@ export class ViewUsersComponent implements OnInit {
   updateAdmin(user: User) {
     this.userService.updateAdmin(user).subscribe();
     this.getUsers();
+  }
+
+  delete(user: User) {
+    this.userService.delete(user).subscribe(
+      data => {},
+      error => { alert("User can not be deleted beause they are in an event") }
+    );
+    this.router.navigate(['/admin/users/view']);
   }
 
 }
