@@ -46,7 +46,7 @@ export class EventFormComponent implements OnInit {
   update() {
     this.eventService.update(this.event).subscribe(
       data => {
-        this.event = this.eventService.createObject(data);
+        this.router.navigate(['/admin/events/view']);
       }
     );
   }
@@ -64,10 +64,11 @@ export class EventFormComponent implements OnInit {
   }
 
   addOrRemoveClass(_class: Class) {
+    let inEvent = false;
+
     if(this.event.classes == undefined) {
       this.event.classes = [];
     }
-
     this.event.classes.forEach((eventClass, index) => {
       if(eventClass.id == _class.id) {
         this.event.classes.splice(index, 1);
@@ -86,6 +87,7 @@ export class EventFormComponent implements OnInit {
     if(!this.updateForm) {
       return false;
     }
+
     for(let eventClass of this.event.classes) {
       if(eventClass.id == _class.id) {
         return true;

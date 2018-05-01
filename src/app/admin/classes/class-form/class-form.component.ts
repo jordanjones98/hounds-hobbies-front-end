@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Class } from '../../../entity/Class';
 import { ClassService } from '../../../services/class.service';
@@ -14,7 +15,8 @@ export class ClassFormComponent implements OnInit {
   @Input() updateForm;
 
   constructor(
-    private classService: ClassService
+    private classService: ClassService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -26,6 +28,8 @@ export class ClassFormComponent implements OnInit {
     } else {
       this.add();
     }
+
+    this.router.navigate(['/admin/classes/view']);
   }
 
   add() {

@@ -1,5 +1,4 @@
-p.header {
-  font-size: 1.5em;
+h2.header {
   text-align: center !important;
 }
 
@@ -7,7 +6,18 @@ p.about {
 
 }
 
+h2.call-to-action {
+  margin-top: 35px;
+}
+
 div.about {
   margin-bottom: 25px;
   padding-bottom: 15px;
+}
+
+div.about-card {
+  background-color: #5881d3 !important;
+  color: white;
+  padding-top: 15px;
+  padding-bottom: 5px;
 }
