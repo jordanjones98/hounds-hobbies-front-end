@@ -40,7 +40,7 @@ export class AuthService {
   signInWithGoogle() {
     return this.af.auth.signInWithPopup(
       new firebase.auth.GoogleAuthProvider()
-    )
+    );
   }
 
   isLoggedIn() {

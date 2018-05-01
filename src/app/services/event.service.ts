@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { JsonConvert, OperationMode, ValueCheckingMode }  from 'json2typescript';
 import { Event } from '../entity/Event';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class EventService {
@@ -11,11 +12,11 @@ export class EventService {
   ) {}
 
   getAllEvents() {
-    return this.apiService.getRequest("http://192.168.1.34:8888/events");
+    return this.apiService.getRequest(environment.apiEndpoint + "/events");
   }
 
   getEventBySlug(slug) {
-    return this.apiService.getRequest("http://192.168.1.34:8888/events/" + slug);
+    return this.apiService.getRequest(environment.apiEndpoint + "/events/" + slug);
   }
 
   createObject(response) {
@@ -33,7 +34,7 @@ export class EventService {
   add(event: Event) {
     let jsonEvent = JSON.stringify(event);
     return this.apiService.postRequest(
-      "http://192.168.1.34:8888/events/insert",
+      environment.apiEndpoint + "/events/insert",
       jsonEvent
     );
   }
@@ -41,14 +42,14 @@ export class EventService {
   update(event: Event) {
     let jsonEvent = JSON.stringify(event);
     return this.apiService.postRequest(
-      "http://192.168.1.34:8888/events/update",
+      environment.apiEndpoint + "/events/update",
       jsonEvent
     );
   }
 
   delete(event: Event) {
     return this.apiService.deleteRequest(
-      "http://192.168.1.34:8888/events/delete",
+      environment.apiEndpoint + "/events/delete",
       event
     );
   }

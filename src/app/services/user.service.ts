@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { JsonConvert, OperationMode, ValueCheckingMode }  from 'json2typescript';
 import { User } from '../entity/User';
+import { environment } from '../../environments/environment'
 
 
 @Injectable()
@@ -12,17 +13,17 @@ export class UserService {
   ) { }
 
   getAllUsers() {
-    return this.apiService.getRequest("http://192.168.1.34:8888/users");
+    return this.apiService.getRequest(environment.apiEndpoint + "/users");
   }
 
   getUserBySlug(slug) {
-    return this.apiService.getRequest("http://192.168.1.34:8888/users/" + slug);
+    return this.apiService.getRequest(environment.apiEndpoint + "/users/" + slug);
   }
 
   add(user: User) {
     let jsonUser = JSON.stringify(user);
     return this.apiService.postRequest(
-      "http://192.168.1.34:8888/users/insert",
+      environment.apiEndpoint + "/users/insert",
       jsonUser
     );
   }
@@ -30,7 +31,7 @@ export class UserService {
   update(user: User) {
     let jsonUser = JSON.stringify(user);
     return this.apiService.postRequest(
-      "http://192.168.1.34:8888/users/update",
+      environment.apiEndpoint + "/users/update",
       jsonUser
     );
   }
@@ -38,14 +39,14 @@ export class UserService {
   delete(user: User) {
     let jsonUser = JSON.stringify(user);
     return this.apiService.deleteRequest(
-      "http://192.168.1.34:8888/users/delete",
+      environment.apiEndpoint + "/users/delete",
       jsonUser
     );
   }
 
   getUser(email, fullName) {
     return this.apiService.postRequest(
-      "http://192.168.1.34:8888/users/create-or-return",
+      environment.apiEndpoint + "/users/create-or-return",
       {
         "email": email,
         "fullName": fullName
@@ -67,14 +68,14 @@ export class UserService {
 
   addOrRemoveEvent(user: User) {
     return this.apiService.postRequest(
-      "http://192.168.1.34:8888/users/" + user.slug + "/add-or-remove-event",
+      environment.apiEndpoint + "/users/" + user.slug + "/add-or-remove-event",
       JSON.stringify(user)
     );
   }
 
   updateAdmin(user: User) {
     return this.apiService.postRequest(
-      "http://192.168.1.34:8888/users/" + user.slug + "/admin",
+      environment.apiEndpoint + "/users/" + user.slug + "/admin",
       JSON.stringify(user)
     );
   }
