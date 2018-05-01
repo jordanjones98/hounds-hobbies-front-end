@@ -14,12 +14,6 @@
     <input type="text" name="date" id="date" class="form-control" required [(ngModel)]="event.date">
   </div>
 
-  <div class="form-group">
-    <label for="name">slug:</label>
-    <input type="text" name="slug" id="slug" class="form-control" required [(ngModel)]="event.slug">
-  </div>
-
-
   <h3>Classes</h3>
   <div *ngFor="let _class of classes">
     <input type="checkbox" value="{{ _class.slug }}" (click)="addOrRemoveClass(_class)"
